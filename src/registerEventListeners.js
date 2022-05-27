@@ -14,6 +14,14 @@ addListener('click', '[data-element="addTodoButton"]', () => {
   store.dispatch(todoActions.add(todoInput.value));
 });
 
+addListener('keypress', '[data-element="addTodoInput"]', (event) => {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    const todoInput = document.querySelector('[data-element="addTodoInput"]');
+    store.dispatch(todoActions.add(todoInput.value));
+  }
+})
+
 addListener('click', '[data-element="toggleTodo"]', e => {
   const id = Number(e.target.dataset.id);
   store.dispatch(todoActions.toggle(id));
