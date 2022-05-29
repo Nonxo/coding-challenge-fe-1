@@ -27,15 +27,17 @@ function renderTodoItem(todo) {
 }
 
 export default (element, state) => {
+  console.log(state)
+  const { filterType, todos } = state
   let filteredTodos;
 
   filteredTodos = state.todos;
 
-  if (state.filterType === "CLOSED") {
-    filteredTodos = state.todos.filter((todo) => todo.completed)
+  if (filterType === "CLOSED") {
+    filteredTodos = todos.filter((todo) => todo.completed)
   }
-  if (state.filterType === "OPEN") {
-    filteredTodos = state.todos.filter((todo) => !todo.completed)
+  if (filterType === "OPEN") {
+    filteredTodos = todos.filter((todo) => !todo.completed)
   }
   const todoItems = filteredTodos.map(renderTodoItem).join('');
   element.innerHTML = renderApp(
@@ -44,9 +46,9 @@ export default (element, state) => {
   );
 
   let radioInput;
-  if (state.filterType === 'CLOSED') {
+  if (filterType === 'CLOSED') {
     radioInput = document.querySelector('[data-element="showClosedTodos"]');
-  } else if (state.filterType === 'OPEN') {
+  } else if (filterType === 'OPEN') {
     radioInput = document.querySelector('[data-element="showOpenTodos"]');
   } else {
     radioInput = document.querySelector('[data-element="showAllTodos"]');
