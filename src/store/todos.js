@@ -7,6 +7,7 @@ const uniqueId = {
 };
 
 export const initialState = {
+  filterType: "ALL",
   todos: [
     {
       id: uniqueId.get(),
@@ -48,5 +49,9 @@ export default (state = initialState, action) => {
         }
       }
       break;
+    case 'FILTER':
+      state.filterType = action.filterType
+      break;
+
   }
 }

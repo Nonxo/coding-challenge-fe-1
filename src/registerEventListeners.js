@@ -26,3 +26,12 @@ addListener('click', '[data-element="toggleTodo"]', e => {
   const id = Number(e.target.dataset.id);
   store.dispatch(todoActions.toggle(id));
 });
+
+const handleFilter = (e) => {
+  const filterType = e.target.value
+  store.dispatch(todoActions.filter(filterType))
+}
+
+addListener('click', '[data-element="showAllTodos"]', handleFilter)
+addListener('click', '[data-element="showOpenTodos"]', handleFilter)
+addListener('click', '[data-element="showClosedTodos"]', handleFilter)
