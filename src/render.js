@@ -27,7 +27,6 @@ function renderTodoItem(todo) {
 }
 
 export default (element, state) => {
-  console.log(state)
   const { filterType, todos } = state
   let filteredTodos;
 

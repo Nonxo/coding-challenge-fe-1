@@ -33,7 +33,6 @@ export const initialState = {
 };
 
 const todoReducer =  (state = initialState, action) => {
-  console.log(state)
   switch (action.type) {
     case 'ADD':
     return {
@@ -42,8 +41,7 @@ const todoReducer =  (state = initialState, action) => {
           id: uniqueId.get(),
           title: action.title,
           completed: false
-        })],
-      filterType: action.title
+        })]
     }
     case 'TOGGLE':
       return {
