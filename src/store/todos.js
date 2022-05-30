@@ -58,7 +58,7 @@ const todoReducer =  (state = initialState, action) => {
     case 'FILTER':
       return {
         ...state,
-        filterType: action.filterType
+        filterType: action.filterType,
       }
 
   }

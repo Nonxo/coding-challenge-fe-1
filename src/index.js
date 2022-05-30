@@ -1,10 +1,19 @@
-import './main.css';
+import React from "react";
+import {createRoot} from "react-dom/client";
+import App from "./App";
+import "./main.css"
+import {Provider} from "react-redux";
+import store from "./store";
 
-import store from './store';
-import render from './render';
-import './registerEventListeners';
 
-const rootElement = document.getElementById('demo');
+const rootElement = document.getElementById('root');
 
-store.subscribe(() => render(rootElement, store.getState()));
-render(rootElement, store.getState());
+createRoot(rootElement).render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+)
+
+
+
+
