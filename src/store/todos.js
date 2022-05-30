@@ -37,11 +37,11 @@ const todoReducer =  (state = initialState, action) => {
     case 'ADD':
     return {
       ...state,
-        todos: [...state.todos.push({
+        todos: [...state.todos, {
           id: uniqueId.get(),
           title: action.title,
           completed: false
-        })]
+        }]
     }
     case 'TOGGLE':
       return {
@@ -53,8 +53,7 @@ const todoReducer =  (state = initialState, action) => {
             }
             return todo
           })
-        ],
-        filterType: action.id
+        ]
       }
     case 'FILTER':
       return {
